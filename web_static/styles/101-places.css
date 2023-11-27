@@ -30,11 +30,7 @@
   text-align: center;
   flex-grow: 1;
 }
-/* ************************************************** */
-/* article information */
-/* ************************************************** */
 
-/* circle with price */
 .article_places_header {
   width: 100%;
   display: flex;
@@ -54,9 +50,7 @@
     margin-bottom: 5px;
 }
 
-/* ******************************************/
-/* information box with icons */
-/* ******************************************/
+
 
 .information {
   width: 100%;
@@ -75,8 +69,7 @@
   padding: 0;
 }
 
-/***********/
-/* icons   */
+
 
 .max_guest {
   background-image: url(../images/icon_group.png);
@@ -101,9 +94,7 @@
   text-align:center;
 }
 
-/*******************************************/
-/* more information */
-/*******************************************/
+
 .places .amenities,
 .places .reviews {
   margin-top: 40px;
@@ -131,9 +122,7 @@
 .places .reviews p {
   font-size: 12px;
 }
-/*******************************************/
-/* amenities icons */
-/*******************************************/
+
 .places .amenities ul li{
   display: flex;
   flex-direction: row;

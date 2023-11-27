@@ -8,6 +8,6 @@ footer {
             justify-content: center;
             position: fixed;
             align-items: center;
-            display: fixed;
+            display: flex;
             bottom: 0;
 }

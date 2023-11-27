@@ -1,5 +1,5 @@
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) */
+/* Extra small devices  */
+/* @media only screen and  */
 header {
   z-index: 4;
   color: #fff;
@@ -14,8 +14,8 @@ header {
   text-align: left;
 }
 /*****************************************************************/
-/* rotate burguer
-/*****************************************************************/
+/* rotate burguer */
+
 
 .main_nav_burguer {
   margin: .6rem 0 0 1rem;
@@ -47,8 +47,7 @@ header {
 }
 
 /*****************************************************************/
-/* popup first level menu
-/*****************************************************************/
+/* popup first level menu */
 .nav_bar_level1 {
   width: 0%;
   height: 0%;
@@ -113,11 +112,11 @@ ul li span:hover
 #third_check:checked  + ul{
   display: block;
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Small devices */
 @media only screen and (min-width: 600px) {
 
 }
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices  */
 @media only screen and (min-width: 768px) {
   header {
       background-position: left;
@@ -127,7 +126,7 @@ ul li span:hover
     display: none;
   }
 }
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices  */
 @media only screen and (min-width: 992px) {
 
 }

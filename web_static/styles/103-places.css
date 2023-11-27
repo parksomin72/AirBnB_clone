@@ -1,15 +1,15 @@
 @media only screen and (max-width: 600px) {
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Small devices  */
 @media only screen and (min-width: 600px) {
 
 }
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices  */
 @media only screen and (min-width: 768px) {
 
 }
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices  */
 @media only screen and (min-width: 992px) {
 
 }
@@ -48,7 +48,7 @@
 }
 /* ************************************************** */
 /* article information */
-/* ************************************************** */
+
 
 /* circle with price */
 .article_places_header {
@@ -71,8 +71,8 @@
     transition: 0.2s ease-in-out;
 }
 /* ******************************************/
-/* ARIA
-/* ******************************************/
+/* ARIA */
+
 .price_by_night:hover,
 .price_by_night:focus {
   background-color: antiquewhite;
@@ -89,7 +89,7 @@ article:focus {
 }
 /* ******************************************/
 /* information box with icons */
-/* ******************************************/
+
 
 .information {
   width: 100%;
@@ -136,7 +136,7 @@ article:focus {
 
 /*******************************************/
 /* more information */
-/*******************************************/
+
 .places .amenities,
 .places .reviews {
   margin-top: 40px;
@@ -166,7 +166,7 @@ article:focus {
 }
 /*******************************************/
 /* amenities icons */
-/*******************************************/
+
 .places .amenities ul li{
   display: flex;
   flex-direction: row;
