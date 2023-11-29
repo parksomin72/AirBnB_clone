@@ -1,25 +1,29 @@
-# Add an extra blank line after class or function definitions
-class HBNBCommand(cmd.Cmd):
-    """Command interpreter for HBNB project."""
-    
-    prompt = '(hbnb) '
-    
+#!/usr/bin/python3
+"""Console module for the AirBnB command interpreter."""
+import cmd
+
+class Console(cmd.Cmd):
+    """Console class for AirBnB command interpreter."""
+
+    prompt = "(hbnb) "
+
+    def do_help(self, arg):
+        """Display help information."""
+        cmd.Cmd.do_help(self, arg)
+
+    def do_quit(self, arg):
+        """Exit the command interpreter."""
+        return True
+
     def emptyline(self):
-        """Called when an empty line is entered."""
+        """Do nothing on empty line."""
         pass
 
-    def do_quit(self, line):
-        """Quit command to exit the program."""
-        return True
-
     def do_EOF(self, line):
-        """EOF command to exit the program."""
+        """Exit on EOF."""
+        print("")
         return True
 
-# Add an extra blank line between functions
-def main():
-    """Entry point of the command interpreter."""
-    HBNBCommand().cmdloop()
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    console = Console()
+    console.cmdloop()
