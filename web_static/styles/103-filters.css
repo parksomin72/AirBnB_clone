@@ -4,11 +4,11 @@
 @media only screen and (max-width: 600px) {
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Small devices  */
 @media only screen and (min-width: 600px) {
 
 }
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices  */
 @media only screen and (min-width: 768px) {
   .filters {
     height: 70px;
@@ -75,9 +75,9 @@ article:focus {
   background-color: antiquewhite;
 }
 
-  /* ================================================================= */
+  
   /* dropdown menu */
-  /* ================================================================= */
+  
 
   .popover {
     border-radius: 4px;
@@ -122,7 +122,7 @@ article:focus {
   }
 
 }
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices  */
 @media only screen and (min-width: 992px) {
 
 }
