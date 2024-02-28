@@ -3,6 +3,7 @@
 
 import cmd
 
+
 class Console(cmd.Cmd):
     """Console class for AirBnB command interpreter."""
     
@@ -25,6 +26,8 @@ class Console(cmd.Cmd):
         print("")
         return True
 
+
 if __name__ == "__main__":
     console = Console()
     console.cmdloop()
+
