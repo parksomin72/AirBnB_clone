@@ -5,7 +5,7 @@ import cmd
 
 
 class Console(cmd.Cmd):
-    """Console class for AirBnB command interpreter."""    
+    """Console class for AirBnB command interpreter."""
     prompt = "(hbnb) "
 
     def do_help(self, arg):
