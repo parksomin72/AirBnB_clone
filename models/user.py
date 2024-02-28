@@ -2,6 +2,7 @@
 """User module for the AirBnB project."""
 from models.base_model import BaseModel
 
+
 class User(BaseModel):
     """User class for AirBnB project."""
 
@@ -12,6 +13,7 @@ class User(BaseModel):
         self.password = ""
         self.first_name = ""
         self.last_name = ""
+
 
 if __name__ == "__main__":
     my_user = User()

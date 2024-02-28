@@ -2,6 +2,7 @@
 """Place module for the AirBnB project."""
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """Place class for AirBnB project."""
 
@@ -23,6 +24,7 @@ class Place(BaseModel):
     def __str__(self):
         """Return a string representation of the object."""
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+
 
 if __name__ == "__main__":
     my_place = Place()
