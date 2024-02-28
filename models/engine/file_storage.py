@@ -4,6 +4,7 @@ import json
 import os
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """FileStorage class for AirBnB project."""
 
@@ -38,6 +39,7 @@ class FileStorage:
                     FileStorage.__objects[key] = obj_instance
         except FileNotFoundError:
             pass
+
 
 if __name__ == "__main__":
     storage = FileStorage()
