@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-"""Place module for the AirBnB project."""
+""" Place Module for HBNB project """
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Place class for AirBnB project."""
-
+    """ A place to stay """
     def __init__(self, *args, **kwargs):
-        """Initialize the Place."""
+        """ Initializes Place object """
         super().__init__(*args, **kwargs)
         self.city_id = ""
         self.user_id = ""
