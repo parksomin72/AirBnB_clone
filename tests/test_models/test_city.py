@@ -31,15 +31,15 @@ class TestCity(unittest.TestCase):
             'id': '789',
             'name': 'Test City',
             'state_id': '123',
-            'created_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'),
-            'updated_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S')
+            'created_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S.%f'),
+            'updated_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S.%f')
         }
         city = City(**city_dict)
         self.assertEqual(city.id, '789')
         self.assertEqual(city.name, 'Test City')
         self.assertEqual(city.state_id, '123')
-        self.assertEqual(city.created_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'))
-        self.assertEqual(city.updated_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'))
+        self.assertEqual(city.created_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S.%f'))
+        self.assertEqual(city.updated_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S.%f'))
 
 if __name__ == '__main__':
     unittest.main()
