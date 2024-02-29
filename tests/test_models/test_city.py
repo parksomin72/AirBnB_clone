@@ -1,45 +1,30 @@
 #!/usr/bin/python3
+"""Unit tests for City class."""
+
 import unittest
-from datetime import datetime
 from models.city import City
+from tests.test_models.test_base_model import TestBaseModel
 
-class TestCity(unittest.TestCase):
-    def test_city_creation(self):
-        """Test city creation."""
-        city = City()
-        self.assertIsInstance(city, City)
 
-    def test_city_attributes(self):
-        """Test setting and getting attributes."""
-        city = City()
-        city.name = "Test City"
-        city.state_id = "123"
-        self.assertEqual(city.name, "Test City")
-        self.assertEqual(city.state_id, "123")
+class TestCity(TestBaseModel):
+    """Test cases for City class."""
 
-    def test_to_dict(self):
-        """Test conversion to dictionary."""
-        city = City(name="Test City", state_id="123")
-        city_dict = city.to_dict()
-        self.assertIsInstance(city_dict, dict)
-        self.assertEqual(city_dict['name'], "Test City")
-        self.assertEqual(city_dict['state_id'], "123")
+    def setUp(self):
+        """Set up method to prepare test environment."""
+        self.model = City()
 
-    def test_from_dict(self):
-        """Test creation from dictionary."""
-        city_dict = {
-            'id': '789',
-            'name': 'Test City',
-            'state_id': '123',
-            'created_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S.%f'),
-            'updated_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S.%f')
-        }
-        city = City(**city_dict)
-        self.assertEqual(city.id, '789')
-        self.assertEqual(city.name, 'Test City')
-        self.assertEqual(city.state_id, '123')
-        self.assertEqual(city.created_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S.%f'))
-        self.assertEqual(city.updated_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S.%f'))
+    def tearDown(self):
+        """Clean up method to reset test environment."""
+        del self.model
+
+    def test_state_id(self):
+        """Test state_id attribute."""
+        self.assertEqual(type(self.model.state_id), str)
+
+    def test_name(self):
+        """Test name attribute."""
+        self.assertEqual(type(self.model.name), str)
+
 
 if __name__ == '__main__':
     unittest.main()
