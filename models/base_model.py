@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-import uuid
 from datetime import datetime
+import uuid
+from models import storage
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
@@ -24,3 +25,9 @@ class BaseModel:
         dict_copy['created_at'] = self.created_at.isoformat()
         dict_copy['updated_at'] = self.updated_at.isoformat()
         return dict_copy
+
+    def save(self):
+        """Update the public instance attribute updated_at with the current datetime."""
+        self.updated_at = datetime.now()
+        storage.new(self)
+        storage.save()
