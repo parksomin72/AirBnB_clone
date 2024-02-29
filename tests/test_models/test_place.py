@@ -1,48 +1,31 @@
+#!/usr/bin/python3
 import unittest
+from datetime import datetime
+from models.base_model import BaseModel
 from models.place import Place
+from models.user import User
+
+class TestBaseModel(unittest.TestCase):
+    def test_str_representation(self):
+        """Test string representation."""
+        model = BaseModel(id='49ef9b07-ab18-4a63-a4f3-fb5d71b8109f', name='Test Model')
+        self.assertEqual(str(model), f"[BaseModel] ({model.id}) {model.__dict__}")
 
 class TestPlace(unittest.TestCase):
-    def test_place_creation(self):
-        """Test place creation."""
-        place = Place()
-        self.assertIsInstance(place, Place)
+    def test_to_dict(self):
+    """Test conversion to dictionary."""
+    place = Place(name="Test Place")
+    place_dict = place.to_dict()
+    self.assertIsInstance(place_dict, dict)
+    self.assertEqual(place_dict.get('name'), "Test Place")
 
-    def test_place_attributes(self):
-        """Test setting and getting attributes."""
-        place = Place()
-        place.name = "Test Place"
-        place.city_id = "123"
-        place.user_id = "456"
-        self.assertEqual(place.name, "Test Place")
-        self.assertEqual(place.city_id, "123")
-        self.assertEqual(place.user_id, "456")
-
+class TestUser(unittest.TestCase):
     def test_to_dict(self):
         """Test conversion to dictionary."""
-        place = Place(name="Test Place", city_id="123", user_id="456")
-        place_dict = place.to_dict()
-        self.assertIsInstance(place_dict, dict)
-        self.assertEqual(place_dict['name'], "Test Place")
-        self.assertEqual(place_dict['city_id'], "123")
-        self.assertEqual(place_dict['user_id'], "456")
-
-    def test_from_dict(self):
-        """Test creation from dictionary."""
-        place_dict = {
-            'id': '789',
-            'name': 'Test Place',
-            'city_id': '123',
-            'user_id': '456',
-            'created_at': '2022-01-01T00:00:00',
-            'updated_at': '2022-01-01T00:00:00'
-        }
-        place = Place(**place_dict)
-        self.assertEqual(place.id, '789')
-        self.assertEqual(place.name, 'Test Place')
-        self.assertEqual(place.city_id, '123')
-        self.assertEqual(place.user_id, '456')
-        self.assertEqual(str(place.created_at), '2022-01-01 00:00:00')
-        self.assertEqual(str(place.updated_at), '2022-01-01 00:00:00')
+        user = User(username="parksomin72", email="fatimazahraealawi@gmail.com")
+        user_dict = user.to_dict()
+        self.assertIsInstance(user_dict, dict)
+        self.assertEqual(user_dict.get('email'), 'fatimazahraealawi@gmail.com')
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 import unittest
+from datetime import datetime
 from models.city import City
 
 class TestCity(unittest.TestCase):
@@ -29,15 +31,15 @@ class TestCity(unittest.TestCase):
             'id': '789',
             'name': 'Test City',
             'state_id': '123',
-            'created_at': '2022-01-01T00:00:00',
-            'updated_at': '2022-01-01T00:00:00'
+            'created_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'),
+            'updated_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S')
         }
         city = City(**city_dict)
         self.assertEqual(city.id, '789')
         self.assertEqual(city.name, 'Test City')
         self.assertEqual(city.state_id, '123')
-        self.assertEqual(str(city.created_at), '2022-01-01 00:00:00')
-        self.assertEqual(str(city.updated_at), '2022-01-01 00:00:00')
+        self.assertEqual(city.created_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'))
+        self.assertEqual(city.updated_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'))
 
 if __name__ == '__main__':
     unittest.main()

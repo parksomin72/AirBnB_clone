@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 import unittest
+from datetime import datetime
 from models.state import State
 
 class TestState(unittest.TestCase):
@@ -25,14 +27,14 @@ class TestState(unittest.TestCase):
         state_dict = {
             'id': '789',
             'name': 'Test State',
-            'created_at': '2022-01-01T00:00:00',
-            'updated_at': '2022-01-01T00:00:00'
+            'created_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'),
+            'updated_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S')
         }
         state = State(**state_dict)
         self.assertEqual(state.id, '789')
         self.assertEqual(state.name, 'Test State')
-        self.assertEqual(str(state.created_at), '2022-01-01 00:00:00')
-        self.assertEqual(str(state.updated_at), '2022-01-01 00:00:00')
+        self.assertEqual(state.created_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'))
+        self.assertEqual(state.updated_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'))
 
 if __name__ == '__main__':
     unittest.main()

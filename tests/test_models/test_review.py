@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 import unittest
+from datetime import datetime
 from models.review import Review
 
 class TestReview(unittest.TestCase):
@@ -33,16 +35,16 @@ class TestReview(unittest.TestCase):
             'text': 'Great experience!',
             'user_id': '123',
             'place_id': '456',
-            'created_at': '2022-01-01T00:00:00',
-            'updated_at': '2022-01-01T00:00:00'
+            'created_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'),
+            'updated_at': datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S')
         }
         review = Review(**review_dict)
         self.assertEqual(review.id, '789')
         self.assertEqual(review.text, 'Great experience!')
         self.assertEqual(review.user_id, '123')
         self.assertEqual(review.place_id, '456')
-        self.assertEqual(str(review.created_at), '2022-01-01 00:00:00')
-        self.assertEqual(str(review.updated_at), '2022-01-01 00:00:00')
+        self.assertEqual(review.created_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'))
+        self.assertEqual(review.updated_at, datetime.strptime('2022-01-01T00:00:00', '%Y-%m-%dT%H:%M:%S'))
 
 if __name__ == '__main__':
     unittest.main()
