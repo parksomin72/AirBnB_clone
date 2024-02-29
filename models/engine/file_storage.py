@@ -1,15 +1,25 @@
+#!/usr/bin/python3
+import os
+import json
 from models.base_model import BaseModel
 from models.user import User
 
 class FileStorage:
     """Class to serialize and deserialize instances to JSON file and vice versa."""
     
-    ...
+    def __init__(self):
+        """Initializes FileStorage instance."""
+        ...
+        self.__objects = {}
     
     __classes = {
         'BaseModel': BaseModel,
         'User': User
     }
+
+    def all(self):
+        """Returns the dictionary __objects."""
+        return self.__objects
 
     ...
     

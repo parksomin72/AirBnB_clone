@@ -1,10 +1,17 @@
 #!/usr/bin/python3
 from datetime import datetime
 import uuid
-from models import storage
 
 class BaseModel:
+    """BaseModel class for other classes to inherit from."""
+    
     def __init__(self, *args, **kwargs):
+        """Initializes BaseModel instance."""
+        ...
+
+        # Avoid direct import of storage
+        # from models import storage
+
         if kwargs:
             if 'created_at' in kwargs:
                 kwargs['created_at'] = datetime.strptime(kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f")
@@ -28,6 +35,9 @@ class BaseModel:
 
     def save(self):
         """Update the public instance attribute updated_at with the current datetime."""
+        # Import storage locally
+        from models import storage
         self.updated_at = datetime.now()
         storage.new(self)
         storage.save()
+    ...
