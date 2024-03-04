@@ -61,8 +61,7 @@ class HBNBCommand(cmd.Cmd):
                 pline = pline[2].strip()  # pline is now str
                 if pline:
                     # check for *args or **kwargs
-                    if pline[0] is '{' and pline[-1] is'}'\
-                            and type(eval(pline)) is dict:
+                    if pline[0] == '{' and pline[-1] == '}':
                         _args = pline
                     else:
                         _args = pline.replace(',', '')
@@ -148,7 +147,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return
 
-        print(storage.all()[key])
+        print(str(storage.all()[key]))
 
     def help_show(self):
         """ Help information for the show command """
