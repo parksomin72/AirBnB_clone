@@ -155,7 +155,7 @@ class HBNBCommand(cmd.Cmd):
         print("[Usage]: show <className> <objectId>\n")
 
     def do_destroy(self, args):
-        """ Destroys a specified object """
+        """ Method to destroy an individual object """
         if not args:
             print("** class name missing **")
             return
@@ -178,46 +178,43 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return
 
-        del(storage.all()[key])
+        del storage.all()[key]
         storage.save()
 
     def help_destroy(self):
         """ Help information for the destroy command """
-        print("Destroys an individual instance of a class")
+        print("Destroys an instance of a class")
         print("[Usage]: destroy <className> <objectId>\n")
 
     def do_all(self, args):
-        """ Shows all objects, or all objects of a class"""
-        print_list = []
+        """ Method to print all instances """
+        if not args:
+            print([str(value) for value in storage.all().values()])
+            return
 
-        if args:
-            class_name = args.split()[0]
-            if class_name not in self.classes:
-                print("** class doesn't exist **")
-                return
+        args = args.split()
+        class_name = args[0]
 
-            for key, val in storage.all().items():
-                if key.split('.')[0] == class_name:
-                    print_list.append(str(val))
-        else:
-            for val in storage.all().values():
-                print_list.append(str(val))
+        if class_name not in self.classes:
+            print("** class doesn't exist **")
+            return
 
-        print(print_list)
+        print([str(value) for key, value in storage.all().items() if class_name in key])
 
     def help_all(self):
         """ Help information for the all command """
-        print("Shows all objects, or all of a class")
-        print("[Usage]: all <className>\n")
+        print("Prints all instances")
+        print("[Usage]: all [<className>]\n")
 
     def do_update(self, args):
-        """ Updates a certain object with new info """
-        args = split(args)
-        if len(args) < 1:
+        """ Method to update an instance attribute """
+        if not args:
             print("** class name missing **")
             return
 
+        args = args.split()
         class_name = args[0]
+
         if class_name not in self.classes:
             print("** class doesn't exist **")
             return
