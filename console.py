@@ -147,7 +147,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return
 
-        print(str(storage.all()[key]))
+        instance = storage.all()[key]
+        print(instance)
 
     def help_show(self):
         """ Help information for the show command """
