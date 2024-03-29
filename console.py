@@ -124,31 +124,32 @@ class HBNBCommand(cmd.Cmd):
         print("[Usage]: create <className>\n")
 
     def do_show(self, args):
-        """ Method to show an individual object """
-        if not args:
-            print("** class name missing **")
-            return
+    """ Method to show an individual object """
+    if not args:
+        print("** class name missing **")
+        return
 
-        args = args.split()
-        class_name = args[0]
+    args = args.split()
+    class_name = args[0]
 
-        if class_name not in self.classes:
-            print("** class doesn't exist **")
-            return
+    if class_name not in self.classes:
+        print("** class doesn't exist **")
+        return
 
-        if len(args) < 2:
-            print("** instance id missing **")
-            return
+    if len(args) < 2:
+        print("** instance id missing **")
+        return
 
-        instance_id = args[1]
-        key = class_name + "." + instance_id
+    instance_id = args[1]
+    key = class_name + "." + instance_id
 
-        if key not in storage.all():
-            print("** no instance found **")
-            return
+    if key not in storage.all():
+        print("** no instance found **")
+        return
 
-        instance = storage.all()[key]
-        print(instance)
+    instance = storage.all()[key]
+    print(instance.__str__())
+
 
     def help_show(self):
         """ Help information for the show command """
