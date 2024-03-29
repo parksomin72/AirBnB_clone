@@ -320,35 +320,5 @@ class HBNBCommand(cmd.Cmd):
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
-    def do_search(self, args):
-        """Searches for objects based on specified attributes"""
-        search_list = []
-        if args:
-            args = args.split(' ')
-            if args[0] not in HBNBCommand.classes:
-                print("** class doesn't exist **")
-                return
-            for k, v in storage._FileStorage__objects.items():
-                if k.split('.')[0] == args[0]:
-                    obj_attrs = v.__dict__
-                    found = True
-                    for arg in args[1:]:
-                        attr, val = arg.split('=')
-                        if attr not in obj_attrs or obj_attrs[attr] != val:
-                            found = False
-                            break
-                    if found:
-                        search_list.append(str(v))
-        else:
-            print("** class name missing **")
-            return
-        print(search_list)
-
-    def help_search(self):
-        """Help information for the search command"""
-        print("Searches for objects based on specified attributes")
-        print("[Usage]: search <className> <attributeName>=<value> [<attributeName>=<value> ...]\n")
-
-
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
