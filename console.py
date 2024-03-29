@@ -17,12 +17,12 @@ classes = {
 }
 
 def preloop(self):
-"""Prints if isatty is false"""
+    """Prints if isatty is false"""
 if not sys.__stdin__.isatty():
 print('(hbnb)')
 
 def precmd(self, line):
-"""Reformat command line for advanced command syntax"""
+    """Reformat command line for advanced command syntax"""
 
 if '.' in line and '(' in line and ')' in line:
 parts = line.split('.')
@@ -33,34 +33,34 @@ return line
 
 
 def postcmd(self, stop, line):
-"""Prints if isatty is false"""
+    """Prints if isatty is false"""
 if not sys.__stdin__.isatty():
 print('(hbnb) ', end='')
 return stop
 
 def do_quit(self, command):
-""" Method to exit the HBNB console"""
+    """ Method to exit the HBNB console"""
 exit()
 
 def help_quit(self):
-""" Prints the help documentation for quit  """
+    """ Prints the help documentation for quit  """
 print("Exits the program with formatting\n")
 
 def do_EOF(self, arg):
-""" Handles EOF to exit program """
+    """ Handles EOF to exit program """
 print()
 exit()
 
 def help_EOF(self):
-""" Prints the help documentation for EOF """
+    """ Prints the help documentation for EOF """
 print("Exits the program without formatting\n")
 
 def emptyline(self):
-""" Overrides the emptyline method of CMD """
+    """ Overrides the emptyline method of CMD """
 pass
 
 def do_create(self, args):
-""" Create an object of any class"""
+    """ Create an object of any class"""
 if not args:
 print("** class name missing **")
 return
@@ -78,12 +78,12 @@ storage.save()
 print(new_instance.id)
 
 def help_create(self):
-""" Help information for the create method """
+    """ Help information for the create method """
 print("Creates a class of any type")
 print("[Usage]: create <className>\n")
 
 def do_show(self, args):
-""" Method to show an individual object """
+    """ Method to show an individual object """
 if not args:
 print("** class name missing **")
 return
@@ -110,12 +110,12 @@ instance = storage.all()[key]
 print(instance)
 
 def help_show(self):
-""" Help information for the show command """
+    """ Help information for the show command """
 print("Shows an individual instance of a class")
 print("[Usage]: show <className> <objectId>\n")
 
 def do_destroy(self, args):
-""" Method to destroy an individual object """
+    """ Method to destroy an individual object """
 if not args:
 print("** class name missing **")
 return
@@ -142,12 +142,12 @@ del storage.all()[key]
 storage.save()
 
 def help_destroy(self):
-""" Help information for the destroy command """
+    """ Help information for the destroy command """
 print("Destroys an instance of a class")
 print("[Usage]: destroy <className> <objectId>\n")
 
 def do_all(self, args):
-""" Method to print all instances """
+    """ Method to print all instances """
 if not args:
 print([str(value) for value in storage.all().values()])
 return
@@ -162,12 +162,12 @@ return
 print([str(value) for key, value in storage.all().items() if class_name in key])
 
 def help_all(self):
-""" Help information for the all command """
+    """ Help information for the all command """
 print("Prints all instances")
 print("[Usage]: all [<className>]\n")
 
 def do_update(self, args):
-""" Method to update an instance attribute """
+    """ Method to update an instance attribute """
 if not args:
 print("** class name missing **")
 return
@@ -209,7 +209,7 @@ instance.save()
 print(instance)
 
 def help_update(self):
-""" Help information for the update class """
+    """ Help information for the update class """
 print("Updates an object with new information")
 print("Usage: update <className> <id> <attName> <attVal>\n")
 
