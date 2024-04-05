@@ -145,24 +145,35 @@ class HBNBCommand(cmd.Cmd):
     #        print(new_list)
 
     def do_update(self, line):
-    """Updates an instance based on the class name and id"""
-    args = line.split()
-    if len(args) < 4:
-        print("** class name missing **" if len(args) < 1 else
-              "** instance id missing **" if len(args) < 2 else
-              "** attribute name missing **" if len(args) < 3 else
-              "** value missing **")
-        return
-    cls_name, obj_id, attr_name, attr_value = args[:4]
-    key = f"{cls_name}.{obj_id}"
-    obj = storage.all().get(key)
-    if not obj:
-        print("** no instance found **")
-    else:
-        setattr(obj, attr_name, attr_value)
-        storage.save()
-        print("OK")  # Print confirmation message
-
+        """Update a class instance of a given id by adding or updating
+        a given attribute key/value pair or dictionary.
+        usage:  update <class> <id> <attribute_name> <attribute_value> or
+                <class>.update(<id>, <attribute_name>, <attribute_value>) or
+                <class>.update(<id>, <dictionary>)
+        """
+        arr = line.split()
+        if len(arr) < 1:
+            print("** class name missing **")
+            return
+        elif arr[0] not in class_home:
+            print("** class doesn't exist **")
+            return
+        elif len(arr) < 2:
+            print("** instance id missing **")
+            return
+        else:
+            new_str = f"{arr[0]}.{arr[1]}"
+            if new_str not in storage.all().keys():
+                print("** no instance found **")
+            elif len(arr) < 3:
+                print("** attribute name missing **")
+                return
+            elif len(arr) < 4:
+                print("** value missing **")
+                return
+            else:
+                setattr(storage.all()[new_str], arr[2], arr[3])
+                storage.save()
 
     def do_count(self, line):
         """Print the count all class instances"""
